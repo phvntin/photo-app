@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo App</title>
+
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <template id="postItemTemplate">
+      <li class="post__item">
+        <img
+          class="post__img"
+          src="https://images.unsplash.com/photo-1679349909423-6f5ffad19302?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt="image1"
+        />
+        <div class="post__item--body">
+          <h4 class="item__user">Username</h4>
+          <p class="item__desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a
+            veritatis officia nesciunt blanditiis dolorum dignissimos voluptatum
+            iure ipsa nihil, alias, voluptatibus odit corrupti repellat in.
+          </p>
+        </div>
+      </li>
+    </template>
+    <header>
+      <nav class="nav">
+        <div class="nav__content container">
+          <a href="#" class="nav__logo">Photo App</a>
+          <button class="nav__create-post">New post</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="posts-section container">
+        <h2 class="posts-section__title">Latest posts</h2>
+
+        <ul id="postList" class="post-list"></ul>
+      </section>
+    </main>
+
+    <div id="postDetailModal">
+      <button id="closeDetailBtn" class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="detail-post">
+        <img
+          class="detail-img"
+          src="https://images.unsplash.com/photo-1679349909423-6f5ffad19302?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
+        <div class="detail-content">
+          <div class="user">
+            <h4 class="user-name">phvntin</h4>
+            <p class="user-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+              distinctio delectus debitis quae quisquam sequi? Et, laborum!
+              Maxime saepe officiis molestiae, voluptates illo ratione tempore
+              modi cupiditate suscipit blanditiis error.
+            </p>
+          </div>
+          <button class="delete-btn">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="createNewPostModal">
+      <div class="create-new-content">
+        <button id="closeCreateBtn" class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <!-- <h2>Create a new post</h2> -->
+        <div class="editor">
+          <div class="wrapper">
+            <div class="editor-panel">
+              <div class="filter">
+                <label class="title">Filters</label>
+                <div class="options">
+                  <button id="brightness" class="active">Brightness</button>
+                  <button id="saturation">Saturation</button>
+                  <button id="inversion">Inversion</button>
+                  <button id="grayscale">Grayscale</button>
+                  <button id="grayscale">Contrast</button>
+                  <button id="grayscale">Blur</button>
+                </div>
+                <div class="slider">
+                  <div class="filter-info">
+                    <p class="name">Brightness</p>
+                    <p class="value">100%</p>
+                  </div>
+                  <input type="range" value="100" min="0" max="200" />
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-img">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1663040015351-e52070d52e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="preview-img"
+              />
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="reset-filter">Reset Filters</button>
+            <div class="row">
+              <input type="file" class="file-input" accept="image/*" hidden />
+              <button class="choose-img">Choose image</button>
+              <button class="save-img">Post</button>
+            </div>
+          </div>
+        </div>
+        <div class="info-post">
+          <label for="yourUsername">Username</label>
+          <input
+            type="text"
+            placeholder="Your sign"
+            name=""
+            id="yourUsername"
+          />
+          <label for="yourDesc">Your description</label>
+          <input
+            type="text"
+            placeholder="Your description"
+            name=""
+            id="yourDesc"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
