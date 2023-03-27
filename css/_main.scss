@@ -36,6 +36,12 @@ main {
 
     &--body .item__user {
       margin-bottom: 8px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+      -webkit-box-orient: vertical;
     }
 
     &--body .item__desc {
@@ -43,7 +49,7 @@ main {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-line-clamp: 1; /* number of lines to show */
       -webkit-box-orient: vertical;
     }
   }

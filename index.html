@@ -17,7 +17,7 @@
     <!-- <link rel="stylesheet" href="./style.css" /> -->
   </head>
   <body>
-    <!-- TEMPLATE -->
+    <!-- POST ITEM TEMPLATE -->
     <template id="postItemTemplate">
       <li class="post__item">
         <img
@@ -56,18 +56,18 @@
     <footer class="container">
       <span class="copyright"
         >created by
-        <a href="https://github.com/phvntin" class="username" target="_blank"
-          >phvntin</a
-        >
-        - devChallenges.io</span
-      >
+        <a href="https://github.com/phvntin" class="username" target="_blank">
+          phvntin
+        </a>
+      </span>
     </footer>
 
-    <!-- MODAL -->
+    <!-- POST DETAIL MODAL -->
     <div id="postDetailModal">
       <button id="closeDetailBtn" class="close-btn">
         <i class="fa-solid fa-xmark"></i>
       </button>
+
       <div class="detail-post">
         <img
           class="detail-img"
@@ -91,6 +91,7 @@
       </div>
     </div>
 
+    <!-- CREATE POST MODAL -->
     <div id="createNewPostModal">
       <div class="create-new-content">
         <button id="closeCreateBtn" class="close-btn">
@@ -141,17 +142,19 @@
           <label for="usernameInput">Username</label>
           <input
             type="text"
-            placeholder="Your username"
-            name=""
+            placeholder="username"
+            minlength="3"
+            maxlength="12"
             id="usernameInput"
             required
           />
           <label for="descInput">Your description</label>
           <input
             type="text"
-            placeholder="Your description"
-            name=""
+            placeholder="What are u thinking?"
             id="descInput"
+            minlength="5"
+            maxlength="150"
             required
           />
           <button id="submitCreate" type="submit">Post</button>
@@ -160,7 +163,6 @@
     </div>
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
