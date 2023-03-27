@@ -296,7 +296,6 @@ function hideCreateModal() {
   createModal.classList.remove('active')
   resetFilters()
   formCreateNewPost.reset()
-  // formCreateNewPost.style.display = 'none'
 }
 
 newPostBtn.addEventListener('click', showCreateModal)
@@ -316,6 +315,10 @@ function createPostItem(post) {
   if (postImg) {
     postImg.src = post.imageUrl
     postImg.alt = `Image of ${post.username}`
+
+    postImg.addEventListener('error', () => {
+      postImg.src = 'https://via.placeholder.com/310x310?text=Image+not+found'
+    })
   }
 
   const user = liElement.querySelector('.item__user')
@@ -349,6 +352,9 @@ function assignDataToDetailModal(data) {
   const detailImg = detailModal.querySelector('.detail-img')
   if (!detailImg) return
   detailImg.src = data.imageUrl
+  detailImg.addEventListener('error', () => {
+    detailImg.src = 'https://via.placeholder.com/550x683?text=Image+not+found'
+  })
 
   const username = detailModal.querySelector('.user-name')
   if (!username) return
@@ -383,7 +389,11 @@ function assignDataToDetailModal(data) {
 
   try {
     const { data } = await postApi.getAll()
-    renderPostList(data)
+    const postList = data.sort(
+      (post1, post2) => post2.createdAt - post1.createdAt
+    )
+    console.log(postList)
+    renderPostList(postList)
   } catch (error) {
     console.log('Failed to fetch post list', error)
   }

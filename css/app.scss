@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+:root {
+  /* --primary-color: #c8b6a6; */
+  /* --secondary-color: # */
+  --background-color: #fff;
+  --text-color: #1a120b;
+}
+
+// RESET CSS
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--background-color);
+  position: relative;
+  min-height: 100vh;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// MIXINS
+@mixin responsive($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@import './header';
+@import './main';
+@import './footer';
+@import '_modal';

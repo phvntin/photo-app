@@ -11,10 +11,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
   </head>
   <body>
+    <!-- TEMPLATE -->
     <template id="postItemTemplate">
       <li class="post__item">
         <img
@@ -32,6 +35,7 @@
         </div>
       </li>
     </template>
+
     <header>
       <nav class="nav">
         <div class="nav__content container">
@@ -49,6 +53,17 @@
       </section>
     </main>
 
+    <footer class="container">
+      <span class="copyright"
+        >created by
+        <a href="https://github.com/phvntin" class="username" target="_blank"
+          >phvntin</a
+        >
+        - devChallenges.io</span
+      >
+    </footer>
+
+    <!-- MODAL -->
     <div id="postDetailModal">
       <button id="closeDetailBtn" class="close-btn">
         <i class="fa-solid fa-xmark"></i>
