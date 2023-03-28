@@ -11,6 +11,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/app.css" />
@@ -19,11 +25,11 @@
   <body>
     <!-- POST ITEM TEMPLATE -->
     <template id="postItemTemplate">
-      <li class="post__item">
+      <li class="col-12 col-md-6 col-lg-4 post__item">
         <img
           class="post__img"
           src="https://images.unsplash.com/photo-1679349909423-6f5ffad19302?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-          alt="image1"
+          alt=""
         />
         <div class="post__item--body">
           <h4 class="item__user">Username</h4>
@@ -46,10 +52,12 @@
     </header>
 
     <main>
-      <section class="posts-section container">
-        <h2 class="posts-section__title">Latest posts</h2>
+      <section class="posts-section">
+        <div class="container">
+          <h2 class="posts-section__title">Latest posts</h2>
 
-        <ul id="postList" class="post-list"></ul>
+          <ul id="postList" class="post-list row justify-content-center"></ul>
+        </div>
       </section>
     </main>
 
@@ -83,6 +91,7 @@
               Maxime saepe officiis molestiae, voluptates illo ratione tempore
               modi cupiditate suscipit blanditiis error.
             </p>
+            <span class="time-span"></span>
           </div>
           <button class="delete-btn">
             <i class="fa-solid fa-trash"></i>
@@ -131,11 +140,11 @@
 
           <div class="controls">
             <button class="reset-filter">Reset Filters</button>
-            <div class="row">
-              <input type="file" class="file-input" accept="image/*" hidden />
-              <button class="choose-img">Choose image</button>
-              <button class="save-filter">Save filter</button>
-            </div>
+            <!-- <div class="row"> -->
+            <input type="file" class="file-input" accept="image/*" hidden />
+            <button class="choose-img">Choose image</button>
+            <button class="save-filter">Save filter</button>
+            <!-- </div> -->
           </div>
         </div>
         <form id="formCreateNewPost">
@@ -162,6 +171,12 @@
       </div>
     </div>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script type="module" src="./script.js"></script>
   </body>

@@ -1,33 +1,46 @@
-main {
+//  POSTS SECTION
+.posts-section {
   margin-top: 90px;
 }
 
-//  POSTS SECTION
 .posts-section__title {
   margin-top: 120px;
+  margin-bottom: 60px;
   font-size: 36px;
   text-align: center;
 }
 .post {
   &-list {
-    margin: 80px auto 0;
-    align-items: stretch;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-start;
-    column-gap: 10px;
-    flex-wrap: wrap;
-    width: 950px;
+    // margin: 80px auto 0;
+    // align-items: stretch ;
+    // box-sizing: border-box;
+    // display: flex;
+    // justify-content: flex-start !important;
+    // column-gap: 10px;
+    // flex-wrap: wrap;
+    // width: 950px;
+    padding: 0;
+    gap: 10px 10px;
+
+    @include responsive(767px) {
+      margin: 0;
+      row-gap: 20px;
+    }
   }
 
   &__item {
-    margin-bottom: 10px;
     width: 310px;
     height: 310px;
+    padding: 0;
     position: relative;
     transition: all 1s linear;
     cursor: pointer;
     border: 1px solid #999;
+
+    @include responsive(767px) {
+      width: 100%;
+      height: unset;
+    }
 
     &:hover .post__item--body {
       opacity: 1;
@@ -35,6 +48,7 @@ main {
     }
 
     &--body .item__user {
+      font-size: 18px;
       margin-bottom: 8px;
       width: 100%;
       overflow: hidden;
@@ -45,6 +59,7 @@ main {
     }
 
     &--body .item__desc {
+      font-size: 16px;
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -68,5 +83,9 @@ main {
     bottom: 0;
     left: 0;
     opacity: 0;
+
+    @include responsive(992px) {
+      opacity: 1;
+    }
   }
 }

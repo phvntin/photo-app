@@ -64,6 +64,11 @@ function assignDataToDetailModal(data) {
   if (!desc) return
   desc.textContent = data.desc
 
+  const timeSpan = detailModal.querySelector('.time-span')
+  if (!timeSpan) return
+  // format date real time
+  timeSpan.textContent = dayjs(data.createdAt).format('DD/MM/YYYY HH:mm')
+
   const deleteBtn = detailModal.querySelector('button.delete-btn')
   if (!deleteBtn) return
 

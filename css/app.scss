@@ -7,8 +7,6 @@
   --text-color: #1a120b;
 }
 
-// RESET CSS
-
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -58,16 +56,15 @@ li {
   list-style: none;
 }
 
-.container {
-  max-width: 1320px;
-  width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
+// .container {
+//   max-width: 1320px;
+//   width: 100%;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
-// MIXINS
 @mixin responsive($width) {
   @media screen and (max-width: $width) {
     @content;
@@ -75,6 +72,6 @@ li {
 }
 
 @import './header';
-@import './main';
+@import './postsSection';
+@import './modal';
 @import './footer';
-@import '_modal';

@@ -7,7 +7,8 @@
 }
 
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
@@ -19,11 +20,12 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background-color: var(--background-color);
   position: relative;
   min-height: 100vh;
@@ -55,15 +57,6 @@ li {
   list-style: none;
 }
 
-.container {
-  max-width: 1320px;
-  width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .nav {
   position: fixed;
   top: 0;
@@ -71,81 +64,113 @@ li {
   left: 0;
   width: 100%;
   background-color: var(--background-color);
-  box-shadow: 3px 2px 15px 5px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 3px 2px 15px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 3px 2px 15px 5px rgba(0, 0, 0, 0.05);
   z-index: 1;
 }
+
 .nav__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 80px;
 }
+
 .nav__logo {
   color: var(--text-color);
   font-size: 24px;
   font-weight: 700;
 }
+
 .nav__create-post {
   color: var(--text-color);
   font-size: 16px;
   font-weight: 700;
 }
 
-main {
+.posts-section {
   margin-top: 90px;
 }
 
 .posts-section__title {
   margin-top: 120px;
+  margin-bottom: 60px;
   font-size: 36px;
   text-align: center;
 }
 
 .post-list {
-  margin: 80px auto 0;
-  align-items: stretch;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 10px;
-  flex-wrap: wrap;
-  width: 950px;
+  padding: 0;
+  gap: 10px 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .post-list {
+    margin: 0;
+    row-gap: 20px;
+  }
+}
+
 .post__item {
-  margin-bottom: 10px;
   width: 310px;
   height: 310px;
+  padding: 0;
   position: relative;
+  -webkit-transition: all 1s linear;
   transition: all 1s linear;
   cursor: pointer;
   border: 1px solid #999;
 }
+
+@media screen and (max-width: 767px) {
+  .post__item {
+    width: 100%;
+    height: unset;
+  }
+}
+
 .post__item:hover .post__item--body {
   opacity: 1;
+  -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
+
 .post__item--body .item__user {
+  font-size: 18px;
   margin-bottom: 8px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+
 .post__item--body .item__desc {
+  font-size: 16px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+
 .post__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
+
 .post__item--body {
   width: 100%;
   padding: 8px;
@@ -156,24 +181,10 @@ main {
   opacity: 0;
 }
 
-footer {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.copyright {
-  display: block;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--text-color);
-  text-align: center;
-}
-
-.username {
-  color: var(--text-color);
-  font-weight: bold;
-  text-decoration: underline;
+@media screen and (max-width: 992px) {
+  .post__item--body {
+    opacity: 1;
+  }
 }
 
 #postDetailModal {
@@ -187,13 +198,20 @@ footer {
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 #postDetailModal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #closeDetailBtn {
@@ -207,22 +225,34 @@ footer {
 }
 
 .detail-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: auto;
   width: auto;
   height: 683px;
   background-color: #000;
 }
+
 .detail-img {
   max-width: 550px;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
+
 .detail-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 12px 20px;
   width: 500px;
   background-color: var(--background-color);
@@ -254,37 +284,59 @@ button.delete-btn {
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
 }
+
 #createNewPostModal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .create-new-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   gap: 15px;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin: auto;
   padding: 20px;
   width: auto;
-  width: 1050px;
+  max-width: 1050px;
   height: 520px;
   background-color: #fff;
   border-radius: 12px;
 }
+
 .create-new-content h2 {
   font-size: 28px;
   font-weight: 600;
 }
+
 .create-new-content .editor {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #closeCreateBtn {
@@ -298,11 +350,14 @@ button.delete-btn {
 }
 
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 400px;
   width: 100%;
 }
-.wrapper .editor-panel {
+
+.editor-panel {
   width: 280px;
   padding: 15px 20px;
   border-radius: 5px;
@@ -316,11 +371,15 @@ button.delete-btn {
   font-weight: 500;
 }
 
-.editor-panel .options,
-.controls {
+.editor-panel .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .editor-panel button {
@@ -334,7 +393,7 @@ button.delete-btn {
 }
 
 .editor-panel .filter button {
-  width: calc(50% - 4px);
+  width: calc(100% / 2 - 4px);
   cursor: pointer;
 }
 
@@ -349,10 +408,14 @@ button.delete-btn {
 }
 
 .filter .slider .filter-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: #464646;
   font-size: 14px;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .filter .slider input {
@@ -362,10 +425,18 @@ button.delete-btn {
 }
 
 .wrapper .preview-img {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   overflow: hidden;
   width: 520px;
 }
@@ -374,7 +445,17 @@ button.delete-btn {
   max-width: 500px;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .controls button {
@@ -388,6 +469,7 @@ button.delete-btn {
 }
 
 .controls .reset-filter {
+  margin-right: auto;
   color: #6c757d;
   border: 1px solid #6c757d;
 }
@@ -406,22 +488,28 @@ button.delete-btn {
 #formCreateNewPost {
   display: none;
 }
+
 #formCreateNewPost label {
   font-size: 16px;
   color: #828282;
   font-weight: 500;
   margin-bottom: 5px;
 }
+
 #formCreateNewPost input {
+  width: 100%;
   border: none;
   border-radius: 8px;
   background: #f7f7f7;
   padding: 15px;
-  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+      -ms-writing-mode: lr-tb;
+          writing-mode: horizontal-tb;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 8px;
 }
+
 #formCreateNewPost button {
   text-transform: uppercase;
   font-size: 14px;
@@ -429,6 +517,26 @@ button.delete-btn {
   padding: 12px 20px;
   border-radius: 3px;
   color: #fff;
+  margin-top: 10px;
 }
 
+footer {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.copyright {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.username {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
 /*# sourceMappingURL=app.css.map */
